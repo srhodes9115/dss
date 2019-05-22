@@ -1,24 +1,19 @@
 console.log( 'fetching' )
 
-fetch('https://statsapi.mlb.com/api/v1/schedule?hydrate=game(content(editorial(recap))),decisions&date=2018-06-10&sportId=1', {
-  headers: {
-    'Content-Type': 'application/json',
-    'Access-Control-Allow-Origin': '*'
-  },
-  method: 'GET',
-  mode: 'cors',
-  referrer: '*'
+async function request () {
+  try {
+    const date = new Date();
+    const formattedDate = `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}`
+    const response = await fetch(`https://statsapi.mlb.com/api/v1/schedule?hydrate=game(content(editorial(recap))),decisions&date=${formattedDate}&sportId=1`, {
+  method: 'GET'
 } )
-  .then( ( response ) => {
-    console.log( response )
-    console.log( response.json() )
-    return JSON.stringify( response.json() ) 
-  } )
-  .then(function(myJson) {
-    console.log( 'i am inside second fcn' )
-    console.log(JSON.stringify(myJson));
-  })
-  .catch( ( err ) => {
-    console.log( err.message )
-    console.log( err.name )
-  } );
+  const text = await response.text()
+  const json = await JSON.parse( text )
+  console.log( json )
+  //do everything here... 
+  } catch ( err ) {
+      console.error( err )
+  }
+}
+
+request()

@@ -35,8 +35,22 @@ p {
   color: white;
   height: 55px;
   width: 90px;
+  visibility: hidden;
 }
 
-.selected {
- background: yellow;
+li.selected {
+ width: 150%;
+ height: 150%;
+}
+
+p.selected {
+  visibility: visible;
+}
+
+div.selected {
+  transform: scale(1.5,1.5);
+}
+
+div {
+  transform-origin: center;
 }

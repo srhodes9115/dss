@@ -47,25 +47,26 @@ async function request () {
            //do something
        } else if ( key == 37 ) { //left arrow key
        		console.log( 'left arrow key' )
-          console.log( index )
        		index--;
           if ( liSelected ) {
-          	console.log( 'liSelected' )
             liSelected.className = ''
-            console.log( ul.getElementsByTagName('li') )
+            liSelected.firstElementChild.className = ''
+            liSelected.children[1].className = ''
+            liSelected.children[2].className = ''
             prev = ul.getElementsByTagName('li').item( index );
-            console.log( prev )
+            
             if ( typeof prev !== undefined && index >= 0 ) {
-            	console.log( 'set liSelected to prev' )
             	liSelected = prev;
             }
             else {
-            	console.log( 'in else of typeOf and index >= 0' )
             	index = len;
               liSelected = ul.getElementsByTagName('li')[len];
             }
             
             liSelected.className += 'selected'
+            liSelected.firstElementChild.className += 'selected'
+            liSelected.children[1].className = 'selected'
+            liSelected.children[2].className = 'selected'
           }
           else {
           	console.log( 'general selection' )
@@ -73,31 +74,39 @@ async function request () {
             liSelected = ul.getElementsByTagName('li')[0];
             console.log( liSelected )
             liSelected.className += 'selected'
+            liSelected.firstElementChild.className += 'selected'
+            liSelected.children[1].className = 'selected'
+            liSelected.children[2].className = 'selected'
           }
        } else if ( key == 39 ) { //right arrow key
        		console.log( 'right arrow key' )
           console.log( index )
        		if (liSelected) {
           	console.log( 'isSelected')
-            liSelected.className = ''
             index++;
             liSelected.className = ''
+            liSelected.firstElementChild.className = ''
+            liSelected.children[1].className = ''
+            liSelected.children[2].className = ''
             next = ul.getElementsByTagName('li').item(index);
             if(typeof next !== undefined && index >= 0) {
-            					console.log( 'liselected not undefined & >= 0')
                       liSelected = next;
                   } else {
-                  		console.log( 'inside else of typoe & >=0 ')
                       index = len;
-                       liSelected = ul.getElementsByTagName('li').item(len);
+                      liSelected = ul.getElementsByTagName('li').item(len);
                   }
                   liSelected.className += 'selected'
+                  liSelected.firstElementChild.className += 'selected'
+                  liSelected.children[1].className = 'selected'
+                  liSelected.children[2].className = 'selected'
           }
           else {
-          	console.log( 'in general else' )
           	index = 0;
            	liSelected = ul.getElementsByTagName('li')[len];
             liSelected.className += 'selected'
+            liSelected.firstElementChild.className += 'selected'
+            liSelected.children[1].className = 'selected'
+            liSelected.children[2].className = 'selected'
           }
        }
     }

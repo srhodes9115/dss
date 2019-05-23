@@ -1,3 +1,65 @@
 body {
-    background-image: url('http://mlb.mlb.com/mlb/images/devices/ballpark/1920x1080/1.jpg')
+    background-image: url('http://mlb.mlb.com/mlb/images/devices/ballpark/1920x1080/1.jpg');
+}
+
+ul {
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+}
+
+li {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-right: 10px;
+  padding-left: 10px;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+div #carousel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+  margin: auto;
+}
+
+p {
+  color: white;
+  height: 55px;
+  width: 90px;
+  visibility: hidden;
+}
+
+li.selected {
+ width: 150%;
+ height: 150%;
+}
+
+p.selected {
+  visibility: visible;
+}
+
+div.selected {
+  transform: scale(1.5, 1.5);
+}
+
+div {
+  transform-origin: center;
+  transition: transform 0.5s ease-in-out;
+}
+
+div #detail {
+  visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 50px;
+  width: 50px;
 }

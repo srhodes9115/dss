@@ -12,6 +12,7 @@ async function request () {
   const games = json.dates[0].games
   console.log( games )
   const ul = document.getElementById("list")
+  const detail = document.getElementById("detail")
   games.forEach ( ( game ) => {
   	const li = document.createElement("li")
     li.setAttribute('id',game.gamePk);
@@ -44,9 +45,9 @@ async function request () {
 
        if ( key == 13 ) { //enter key
        		console.log( 'enter key')
+          const headline = document.createElement("")
            //do something
        } else if ( key == 37 ) { //left arrow key
-       		console.log( 'left arrow key' )
        		index--;
           if ( liSelected ) {
             liSelected.className = ''
@@ -69,20 +70,15 @@ async function request () {
             liSelected.children[2].className = 'selected'
           }
           else {
-          	console.log( 'general selection' )
           	index = 0;
             liSelected = ul.getElementsByTagName('li')[0];
-            console.log( liSelected )
             liSelected.className += 'selected'
             liSelected.firstElementChild.className += 'selected'
             liSelected.children[1].className = 'selected'
             liSelected.children[2].className = 'selected'
           }
        } else if ( key == 39 ) { //right arrow key
-       		console.log( 'right arrow key' )
-          console.log( index )
        		if (liSelected) {
-          	console.log( 'isSelected')
             index++;
             liSelected.className = ''
             liSelected.firstElementChild.className = ''

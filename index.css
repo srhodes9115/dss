@@ -48,9 +48,18 @@ p.selected {
 }
 
 div.selected {
-  transform: scale(1.5,1.5);
+  transform: scale(1.5, 1.5);
 }
 
 div {
   transform-origin: center;
+  transition: transform 0.5s ease-in-out;
+}
+
+div #detail {
+  visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 50px;
+  width: 50px;
 }
